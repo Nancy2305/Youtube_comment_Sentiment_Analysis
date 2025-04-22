@@ -5,11 +5,14 @@ from huggingface_hub import hf_hub_download
 
 import numpy as np
 
-# ✅ Download model from Hugging Face Hub
+
+
 model_path = hf_hub_download(
-    repo_id="NancyAthghara23/YT_Sentiment_analysis",  # ✅ Replace with your actual model repo ID
-    filename="model.pth"  # ✅ Make sure this is exactly how it's named in the repo
+    repo_id="NancyAthghara23/YT_Sentiment_analysis",
+    filename="model.pth",
+    use_auth_token=True  
 )
+
 
 # ✅ Load model
 model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased', num_labels=3)
